@@ -1,1 +1,9 @@
+# Mac & project debris 
 .DS_Store
+*.esproj
+
+# Ignore configuration files that may contain sensitive information.
+sites/*/settings*.php
+
+# Ignore paths that contain private user-generated content.
+sites/default/files/private

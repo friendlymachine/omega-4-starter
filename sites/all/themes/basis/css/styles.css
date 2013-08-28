@@ -184,17 +184,22 @@ ul.breadcrumb li {
 }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/dev\.basis\/sites\/all\/themes\/basis\/sass\/_base\.scss}line{font-family:\00003136}}
+.breadcrumb-sep {
+  color: #dddddd;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/dev\.basis\/sites\/all\/themes\/basis\/sass\/_base\.scss}line{font-family:\00003140}}
 .menu .leaf, ul.breadcrumb li {
   list-style: none;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/dev\.basis\/sites\/all\/themes\/basis\/sass\/_base\.scss}line{font-family:\00003140}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/dev\.basis\/sites\/all\/themes\/basis\/sass\/_base\.scss}line{font-family:\00003144}}
 img {
   height: auto;
   max-width: 100%;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/dev\.basis\/sites\/all\/themes\/basis\/sass\/_base\.scss}line{font-family:\00003145}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/dev\.basis\/sites\/all\/themes\/basis\/sass\/_base\.scss}line{font-family:\00003149}}
 .image-left {
   float: left;
   height: auto;
@@ -202,7 +207,7 @@ img {
   max-width: 50%;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/dev\.basis\/sites\/all\/themes\/basis\/sass\/_base\.scss}line{font-family:\00003152}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/dev\.basis\/sites\/all\/themes\/basis\/sass\/_base\.scss}line{font-family:\00003156}}
 .image-right {
   float: right;
   height: auto;
@@ -214,7 +219,7 @@ img {
    https://drupal.org/node/1578130   
    Second part of this fix is in basis.js
 */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/dev\.basis\/sites\/all\/themes\/basis\/sass\/_base\.scss}line{font-family:\00003164}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/dev\.basis\/sites\/all\/themes\/basis\/sass\/_base\.scss}line{font-family:\00003168}}
 p.fitvids, div.fitvids {
   height: 0;
   margin: 0 0 27px 0;
@@ -222,7 +227,7 @@ p.fitvids, div.fitvids {
   padding-bottom: 54.9%;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/dev\.basis\/sites\/all\/themes\/basis\/sass\/_base\.scss}line{font-family:\00003173}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/dev\.basis\/sites\/all\/themes\/basis\/sass\/_base\.scss}line{font-family:\00003177}}
 .fitvids iframe,
 .fitvids object,
 .fitvids embed {
@@ -233,40 +238,40 @@ p.fitvids, div.fitvids {
   width: 100%;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/dev\.basis\/sites\/all\/themes\/basis\/sass\/_base\.scss}line{font-family:\00003183}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/dev\.basis\/sites\/all\/themes\/basis\/sass\/_base\.scss}line{font-family:\00003187}}
 .fitvids iframe,
 .fitvids object,
 .fitvids embed {
   border: 1px solid #dddddd;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/dev\.basis\/sites\/all\/themes\/basis\/sass\/_base\.scss}line{font-family:\00003187}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/dev\.basis\/sites\/all\/themes\/basis\/sass\/_base\.scss}line{font-family:\00003191}}
 .callout-box {
   background: #2071cc;
   padding: 18px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/dev\.basis\/sites\/all\/themes\/basis\/sass\/_base\.scss}line{font-family:\00003194}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/dev\.basis\/sites\/all\/themes\/basis\/sass\/_base\.scss}line{font-family:\00003198}}
 .callout-box p,
 .callout-box h2,
 .callout-box li {
   color: white;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/dev\.basis\/sites\/all\/themes\/basis\/sass\/_base\.scss}line{font-family:\00003198}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/dev\.basis\/sites\/all\/themes\/basis\/sass\/_base\.scss}line{font-family:\00003202}}
 figure {
   margin: 0;
   padding: 0;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/dev\.basis\/sites\/all\/themes\/basis\/sass\/_base\.scss}line{font-family:\00003203}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/dev\.basis\/sites\/all\/themes\/basis\/sass\/_base\.scss}line{font-family:\00003207}}
 section.comments {
   border-top: 1px solid #dddddd;
   margin-top: 27px;
   padding-top: 27px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/dev\.basis\/sites\/all\/themes\/basis\/sass\/_base\.scss}line{font-family:\00003209}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/dev\.basis\/sites\/all\/themes\/basis\/sass\/_base\.scss}line{font-family:\00003213}}
 article.comment {
   border-bottom: 1px solid #dddddd;
   margin-bottom: 27px;

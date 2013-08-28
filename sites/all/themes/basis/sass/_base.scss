@@ -133,6 +133,10 @@ ul.breadcrumb li {
   margin-right: $em-base;
 }
 
+.breadcrumb-sep {
+  color: $tertiary-color;
+}
+
 .menu .leaf, ul.breadcrumb li {
   list-style: none;
 }
