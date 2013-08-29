@@ -39,24 +39,24 @@
  * before adding any more specific customisations you ensure that as any new
  * features are added they will be correctly styled without any extra work.
  ******************************************************************************/
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/dev\.basis\/sites\/all\/themes\/basis\/sass\/_base\.scss}line{font-family:\0000316}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/omega-4-starter\/sites\/all\/themes\/basis\/sass\/_base\.scss}line{font-family:\0000316}}
 * {
   box-sizing: border-box;
   -moz-box-sizing: border-box;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/dev\.basis\/sites\/all\/themes\/basis\/sass\/_base\.scss}line{font-family:\0000321}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/omega-4-starter\/sites\/all\/themes\/basis\/sass\/_base\.scss}line{font-family:\0000321}}
 html, body {
   height: 100%;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/dev\.basis\/sites\/all\/themes\/basis\/sass\/_base\.scss}line{font-family:\0000325}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/omega-4-starter\/sites\/all\/themes\/basis\/sass\/_base\.scss}line{font-family:\0000325}}
 body {
   color: #777777;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/dev\.basis\/sites\/all\/themes\/basis\/sass\/_base\.scss}line{font-family:\0000330}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/omega-4-starter\/sites\/all\/themes\/basis\/sass\/_base\.scss}line{font-family:\0000330}}
 h1, h2, h3, h4, h5, h6 {
   clear: both;
   color: #777777;
@@ -67,37 +67,37 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: 0.5em;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/dev\.basis\/sites\/all\/themes\/basis\/sass\/_base\.scss}line{font-family:\0000340}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/omega-4-starter\/sites\/all\/themes\/basis\/sass\/_base\.scss}line{font-family:\0000340}}
 h1 {
   font-size: 2.22222rem;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/dev\.basis\/sites\/all\/themes\/basis\/sass\/_base\.scss}line{font-family:\0000344}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/omega-4-starter\/sites\/all\/themes\/basis\/sass\/_base\.scss}line{font-family:\0000344}}
 h2 {
   font-size: 1.83333rem;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/dev\.basis\/sites\/all\/themes\/basis\/sass\/_base\.scss}line{font-family:\0000348}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/omega-4-starter\/sites\/all\/themes\/basis\/sass\/_base\.scss}line{font-family:\0000348}}
 h3 {
   font-size: 1.33333rem;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/dev\.basis\/sites\/all\/themes\/basis\/sass\/_base\.scss}line{font-family:\0000352}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/omega-4-starter\/sites\/all\/themes\/basis\/sass\/_base\.scss}line{font-family:\0000352}}
 h4 {
   font-size: 1.11111rem;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/dev\.basis\/sites\/all\/themes\/basis\/sass\/_base\.scss}line{font-family:\0000356}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/omega-4-starter\/sites\/all\/themes\/basis\/sass\/_base\.scss}line{font-family:\0000356}}
 h5 {
   font-size: 1rem;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/dev\.basis\/sites\/all\/themes\/basis\/sass\/_base\.scss}line{font-family:\0000360}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/omega-4-starter\/sites\/all\/themes\/basis\/sass\/_base\.scss}line{font-family:\0000360}}
 h6 {
   font-size: 1em;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/dev\.basis\/sites\/all\/themes\/basis\/sass\/_base\.scss}line{font-family:\0000364}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/omega-4-starter\/sites\/all\/themes\/basis\/sass\/_base\.scss}line{font-family:\0000364}}
 h1.site-name, h1.site-name a, h2.site-name, h2.site-name a {
   color: white;
   font-size: 2.22222rem;
@@ -105,31 +105,31 @@ h1.site-name, h1.site-name a, h2.site-name, h2.site-name a {
   text-transform: uppercase;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/dev\.basis\/sites\/all\/themes\/basis\/sass\/_base\.scss}line{font-family:\0000371}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/omega-4-starter\/sites\/all\/themes\/basis\/sass\/_base\.scss}line{font-family:\0000371}}
 h2.site-slogan {
   color: white;
   font-size: 1.33333rem;
   margin-bottom: 0;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/dev\.basis\/sites\/all\/themes\/basis\/sass\/_base\.scss}line{font-family:\0000377}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/omega-4-starter\/sites\/all\/themes\/basis\/sass\/_base\.scss}line{font-family:\0000377}}
 h4, h5, h6 {
   font-weight: bold;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/dev\.basis\/sites\/all\/themes\/basis\/sass\/_base\.scss}line{font-family:\0000381}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/omega-4-starter\/sites\/all\/themes\/basis\/sass\/_base\.scss}line{font-family:\0000381}}
 a, a:link, a:visited {
   color: #2071cc;
   text-decoration: none;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/dev\.basis\/sites\/all\/themes\/basis\/sass\/_base\.scss}line{font-family:\0000386}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/omega-4-starter\/sites\/all\/themes\/basis\/sass\/_base\.scss}line{font-family:\0000386}}
 a:hover, a:focus {
   color: #5498e4;
   outline: none;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/dev\.basis\/sites\/all\/themes\/basis\/sass\/_base\.scss}line{font-family:\0000391}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/omega-4-starter\/sites\/all\/themes\/basis\/sass\/_base\.scss}line{font-family:\0000391}}
 p, ol, ul, blockquote, pre, code, span {
   color: #777777;
   font-size: 18px;
@@ -139,67 +139,68 @@ p, ol, ul, blockquote, pre, code, span {
   word-wrap: break-word;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/dev\.basis\/sites\/all\/themes\/basis\/sass\/_base\.scss}line{font-family:\00003100}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/omega-4-starter\/sites\/all\/themes\/basis\/sass\/_base\.scss}line{font-family:\00003100}}
 p {
   clear: both;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/dev\.basis\/sites\/all\/themes\/basis\/sass\/_base\.scss}line{font-family:\00003104}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/omega-4-starter\/sites\/all\/themes\/basis\/sass\/_base\.scss}line{font-family:\00003104}}
 blockquote {
   background: #eeeeee;
   border: 1px solid #dddddd;
   padding: 18px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/dev\.basis\/sites\/all\/themes\/basis\/sass\/_base\.scss}line{font-family:\00003110}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/omega-4-starter\/sites\/all\/themes\/basis\/sass\/_base\.scss}line{font-family:\00003110}}
 ol, ul {
   padding-left: 18px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/dev\.basis\/sites\/all\/themes\/basis\/sass\/_base\.scss}line{font-family:\00003114}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/omega-4-starter\/sites\/all\/themes\/basis\/sass\/_base\.scss}line{font-family:\00003114}}
 ul {
   list-style: disc inside;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/dev\.basis\/sites\/all\/themes\/basis\/sass\/_base\.scss}line{font-family:\00003118}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/omega-4-starter\/sites\/all\/themes\/basis\/sass\/_base\.scss}line{font-family:\00003118}}
 ol {
   list-style: decimal inside;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/dev\.basis\/sites\/all\/themes\/basis\/sass\/_base\.scss}line{font-family:\00003122}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/omega-4-starter\/sites\/all\/themes\/basis\/sass\/_base\.scss}line{font-family:\00003122}}
 .l-main li {
   margin-bottom: 9px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/dev\.basis\/sites\/all\/themes\/basis\/sass\/_base\.scss}line{font-family:\00003126}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/omega-4-starter\/sites\/all\/themes\/basis\/sass\/_base\.scss}line{font-family:\00003126}}
 ul.breadcrumb {
   margin: 27px 0;
   padding-left: 0;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/dev\.basis\/sites\/all\/themes\/basis\/sass\/_base\.scss}line{font-family:\00003131}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/omega-4-starter\/sites\/all\/themes\/basis\/sass\/_base\.scss}line{font-family:\00003131}}
 ul.breadcrumb li {
   display: inline-block;
+  font-size: 15.75px;
   margin-right: 18px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/dev\.basis\/sites\/all\/themes\/basis\/sass\/_base\.scss}line{font-family:\00003136}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/omega-4-starter\/sites\/all\/themes\/basis\/sass\/_base\.scss}line{font-family:\00003137}}
 .breadcrumb-sep {
   color: #dddddd;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/dev\.basis\/sites\/all\/themes\/basis\/sass\/_base\.scss}line{font-family:\00003140}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/omega-4-starter\/sites\/all\/themes\/basis\/sass\/_base\.scss}line{font-family:\00003141}}
 .menu .leaf, ul.breadcrumb li {
   list-style: none;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/dev\.basis\/sites\/all\/themes\/basis\/sass\/_base\.scss}line{font-family:\00003144}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/omega-4-starter\/sites\/all\/themes\/basis\/sass\/_base\.scss}line{font-family:\00003145}}
 img {
   height: auto;
   max-width: 100%;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/dev\.basis\/sites\/all\/themes\/basis\/sass\/_base\.scss}line{font-family:\00003149}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/omega-4-starter\/sites\/all\/themes\/basis\/sass\/_base\.scss}line{font-family:\00003150}}
 .image-left {
   float: left;
   height: auto;
@@ -207,7 +208,7 @@ img {
   max-width: 50%;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/dev\.basis\/sites\/all\/themes\/basis\/sass\/_base\.scss}line{font-family:\00003156}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/omega-4-starter\/sites\/all\/themes\/basis\/sass\/_base\.scss}line{font-family:\00003157}}
 .image-right {
   float: right;
   height: auto;
@@ -219,7 +220,7 @@ img {
    https://drupal.org/node/1578130   
    Second part of this fix is in basis.js
 */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/dev\.basis\/sites\/all\/themes\/basis\/sass\/_base\.scss}line{font-family:\00003168}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/omega-4-starter\/sites\/all\/themes\/basis\/sass\/_base\.scss}line{font-family:\00003169}}
 p.fitvids, div.fitvids {
   height: 0;
   margin: 0 0 27px 0;
@@ -227,7 +228,7 @@ p.fitvids, div.fitvids {
   padding-bottom: 54.9%;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/dev\.basis\/sites\/all\/themes\/basis\/sass\/_base\.scss}line{font-family:\00003177}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/omega-4-starter\/sites\/all\/themes\/basis\/sass\/_base\.scss}line{font-family:\00003178}}
 .fitvids iframe,
 .fitvids object,
 .fitvids embed {
@@ -238,40 +239,40 @@ p.fitvids, div.fitvids {
   width: 100%;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/dev\.basis\/sites\/all\/themes\/basis\/sass\/_base\.scss}line{font-family:\00003187}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/omega-4-starter\/sites\/all\/themes\/basis\/sass\/_base\.scss}line{font-family:\00003188}}
 .fitvids iframe,
 .fitvids object,
 .fitvids embed {
   border: 1px solid #dddddd;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/dev\.basis\/sites\/all\/themes\/basis\/sass\/_base\.scss}line{font-family:\00003191}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/omega-4-starter\/sites\/all\/themes\/basis\/sass\/_base\.scss}line{font-family:\00003192}}
 .callout-box {
   background: #2071cc;
   padding: 18px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/dev\.basis\/sites\/all\/themes\/basis\/sass\/_base\.scss}line{font-family:\00003198}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/omega-4-starter\/sites\/all\/themes\/basis\/sass\/_base\.scss}line{font-family:\00003199}}
 .callout-box p,
 .callout-box h2,
 .callout-box li {
   color: white;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/dev\.basis\/sites\/all\/themes\/basis\/sass\/_base\.scss}line{font-family:\00003202}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/omega-4-starter\/sites\/all\/themes\/basis\/sass\/_base\.scss}line{font-family:\00003203}}
 figure {
   margin: 0;
   padding: 0;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/dev\.basis\/sites\/all\/themes\/basis\/sass\/_base\.scss}line{font-family:\00003207}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/omega-4-starter\/sites\/all\/themes\/basis\/sass\/_base\.scss}line{font-family:\00003208}}
 section.comments {
   border-top: 1px solid #dddddd;
   margin-top: 27px;
   padding-top: 27px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/dev\.basis\/sites\/all\/themes\/basis\/sass\/_base\.scss}line{font-family:\00003213}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/omega-4-starter\/sites\/all\/themes\/basis\/sass\/_base\.scss}line{font-family:\00003214}}
 article.comment {
   border-bottom: 1px solid #dddddd;
   margin-bottom: 27px;
@@ -286,29 +287,29 @@ article.comment {
  * components should not be placed here and should instead be kept with the
  * relevant SCSS for that component.
  ******************************************************************************/
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/dev\.basis\/sites\/all\/themes\/basis\/sass\/_layout\.scss}line{font-family:\0000314}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/omega-4-starter\/sites\/all\/themes\/basis\/sass\/_layout\.scss}line{font-family:\0000314}}
 .l-top {
   padding-bottom: 18px;
   padding-top: 18px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/dev\.basis\/sites\/all\/themes\/basis\/sass\/_layout\.scss}line{font-family:\0000319}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/omega-4-starter\/sites\/all\/themes\/basis\/sass\/_layout\.scss}line{font-family:\0000319}}
 .l-header {
   margin-bottom: 27px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/dev\.basis\/sites\/all\/themes\/basis\/sass\/_layout\.scss}line{font-family:\0000323}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/omega-4-starter\/sites\/all\/themes\/basis\/sass\/_layout\.scss}line{font-family:\0000323}}
 .l-main {
   margin-bottom: 27px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/dev\.basis\/sites\/all\/themes\/basis\/sass\/_layout\.scss}line{font-family:\0000327}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/omega-4-starter\/sites\/all\/themes\/basis\/sass\/_layout\.scss}line{font-family:\0000327}}
 .l-branding-wrapper {
   background: #2071cc;
   padding: 18px 0;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/dev\.basis\/sites\/all\/themes\/basis\/sass\/_layout\.scss}line{font-family:\0000332}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/omega-4-starter\/sites\/all\/themes\/basis\/sass\/_layout\.scss}line{font-family:\0000332}}
 .footer-wrapper {
   width: 100%;
 }
@@ -317,13 +318,13 @@ article.comment {
 *  Placed here as 'component' to keep distinct from Omega's layouts in _layout.scss
 */
 /* One columns */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/dev\.basis\/sites\/all\/themes\/basis\/sass\/_layout\.scss}line{font-family:\0000342}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/omega-4-starter\/sites\/all\/themes\/basis\/sass\/_layout\.scss}line{font-family:\0000342}}
 .ds-1col .field-name-title {
   margin-bottom: 27px;
 }
 
 /* Two column */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/dev\.basis\/sites\/all\/themes\/basis\/sass\/_layout\.scss}line{font-family:\0000349}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/omega-4-starter\/sites\/all\/themes\/basis\/sass\/_layout\.scss}line{font-family:\0000349}}
 .ds-2col-stacked .group-left,
 .ds-2col .group-left {
   width: 100%;
@@ -332,7 +333,7 @@ article.comment {
   display: inline;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/dev\.basis\/sites\/all\/themes\/basis\/sass\/_layout\.scss}line{font-family:\0000354}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/omega-4-starter\/sites\/all\/themes\/basis\/sass\/_layout\.scss}line{font-family:\0000354}}
 .ds-2col-stacked .group-right,
 .ds-2col .group-right {
   width: 100%;
@@ -342,13 +343,13 @@ article.comment {
   clear: both;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/dev\.basis\/sites\/all\/themes\/basis\/sass\/_layout\.scss}line{font-family:\0000359}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/omega-4-starter\/sites\/all\/themes\/basis\/sass\/_layout\.scss}line{font-family:\0000359}}
 .ds-2col-stacked .group-header {
   margin-bottom: 27px;
 }
 
 @media (min-width: 50em) {
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/dev\.basis\/sites\/all\/themes\/basis\/sass\/_layout\.scss}line{font-family:\0000366}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/omega-4-starter\/sites\/all\/themes\/basis\/sass\/_layout\.scss}line{font-family:\0000366}}
   .ds-2col-stacked .group-left,
   .ds-2col .group-left {
     width: 62.18487%;
@@ -357,7 +358,7 @@ article.comment {
     float: left;
   }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/dev\.basis\/sites\/all\/themes\/basis\/sass\/_layout\.scss}line{font-family:\0000372}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/omega-4-starter\/sites\/all\/themes\/basis\/sass\/_layout\.scss}line{font-family:\0000372}}
   .ds-2col-stacked .group-right,
   .ds-2col .group-right {
     width: 32.77311%;
@@ -366,25 +367,25 @@ article.comment {
     clear: none;
   }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/dev\.basis\/sites\/all\/themes\/basis\/sass\/_layout\.scss}line{font-family:\0000377}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/omega-4-starter\/sites\/all\/themes\/basis\/sass\/_layout\.scss}line{font-family:\0000377}}
   .l-logo a {
     display: block;
     float: left;
   }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/dev\.basis\/sites\/all\/themes\/basis\/sass\/_layout\.scss}line{font-family:\0000382}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/omega-4-starter\/sites\/all\/themes\/basis\/sass\/_layout\.scss}line{font-family:\0000382}}
   .l-logo a img {
     height: 62px;
     margin-top: 7px;
   }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/dev\.basis\/sites\/all\/themes\/basis\/sass\/_layout\.scss}line{font-family:\0000387}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/omega-4-starter\/sites\/all\/themes\/basis\/sass\/_layout\.scss}line{font-family:\0000387}}
   .l-sidebar .block {
     margin-bottom: 54px;
   }
 }
 @media (min-width: 70em) {
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/dev\.basis\/sites\/all\/themes\/basis\/sass\/_layout\.scss}line{font-family:\0000395}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/omega-4-starter\/sites\/all\/themes\/basis\/sass\/_layout\.scss}line{font-family:\0000395}}
   .l-logo a img {
     height: 72px;
     margin-top: 0;
@@ -430,7 +431,7 @@ article.comment {
  *       also good candidates for components.
  ******************************************************************************/
 /* VIEWS STYLES */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/dev\.basis\/sites\/all\/themes\/basis\/sass\/_components\.scss}line{font-family:\0000344}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/omega-4-starter\/sites\/all\/themes\/basis\/sass\/_components\.scss}line{font-family:\0000344}}
 .view-content .row,
 .page-taxonomy .row {
   margin-bottom: 27px;
@@ -439,7 +440,7 @@ article.comment {
 
 /* END VIEW STYLES */
 /* TABLE STYLES */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/dev\.basis\/sites\/all\/themes\/basis\/sass\/_components\.scss}line{font-family:\0000354}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/omega-4-starter\/sites\/all\/themes\/basis\/sass\/_components\.scss}line{font-family:\0000354}}
 table {
   background-color: transparent;
   border-collapse: collapse;
@@ -449,7 +450,7 @@ table {
   width: 100%;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/dev\.basis\/sites\/all\/themes\/basis\/sass\/_components\.scss}line{font-family:\0000364}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/omega-4-starter\/sites\/all\/themes\/basis\/sass\/_components\.scss}line{font-family:\0000364}}
 table th,
 table td {
   padding: 9px;
@@ -459,23 +460,23 @@ table td {
   border-top: 1px solid #eeeeee;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/dev\.basis\/sites\/all\/themes\/basis\/sass\/_components\.scss}line{font-family:\0000372}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/omega-4-starter\/sites\/all\/themes\/basis\/sass\/_components\.scss}line{font-family:\0000372}}
 table th {
   font-weight: bold;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/dev\.basis\/sites\/all\/themes\/basis\/sass\/_components\.scss}line{font-family:\0000376}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/omega-4-starter\/sites\/all\/themes\/basis\/sass\/_components\.scss}line{font-family:\0000376}}
 table thead th {
   vertical-align: bottom;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/dev\.basis\/sites\/all\/themes\/basis\/sass\/_components\.scss}line{font-family:\0000381}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/omega-4-starter\/sites\/all\/themes\/basis\/sass\/_components\.scss}line{font-family:\0000381}}
 table tbody > tr:nth-child(odd) > td,
 table tbody > tr:nth-child(odd) > th {
   background-color: #eeeeee;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/dev\.basis\/sites\/all\/themes\/basis\/sass\/_components\.scss}line{font-family:\0000386}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/omega-4-starter\/sites\/all\/themes\/basis\/sass\/_components\.scss}line{font-family:\0000386}}
 table tbody tr:hover > td,
 table tbody tr:hover > th {
   background-color: #5498e4;
@@ -483,25 +484,25 @@ table tbody tr:hover > th {
 
 /* END TABLE STYLES */
 /* CONTENT TYPE + DISPLAY SUITE STYLES */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/dev\.basis\/sites\/all\/themes\/basis\/sass\/_components\.scss}line{font-family:\0000394}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/omega-4-starter\/sites\/all\/themes\/basis\/sass\/_components\.scss}line{font-family:\0000394}}
 .field-name-field-tags {
   padding-bottom: 27px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/dev\.basis\/sites\/all\/themes\/basis\/sass\/_components\.scss}line{font-family:\0000398}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/omega-4-starter\/sites\/all\/themes\/basis\/sass\/_components\.scss}line{font-family:\0000398}}
 .label-inline {
   font-weight: bold;
   line-height: 24px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/dev\.basis\/sites\/all\/themes\/basis\/sass\/_components\.scss}line{font-family:\00003103}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/omega-4-starter\/sites\/all\/themes\/basis\/sass\/_components\.scss}line{font-family:\00003103}}
 .label-above {
   line-height: 24px;
 }
 
 /* END CONTENT TYPE + DISPLAY SUITE STYLES */
 /* PAGER STYLES */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/dev\.basis\/sites\/all\/themes\/basis\/sass\/_components\.scss}line{font-family:\00003111}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/omega-4-starter\/sites\/all\/themes\/basis\/sass\/_components\.scss}line{font-family:\00003111}}
 ul.pager {
   background: none;
   border: none;
@@ -512,30 +513,30 @@ ul.pager {
   text-align: right;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/dev\.basis\/sites\/all\/themes\/basis\/sass\/_components\.scss}line{font-family:\00003121}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/omega-4-starter\/sites\/all\/themes\/basis\/sass\/_components\.scss}line{font-family:\00003121}}
 ul.pager li {
   border: none;
   font-size: 18px;
   padding: .5em 0 .5em 1em;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/dev\.basis\/sites\/all\/themes\/basis\/sass\/_components\.scss}line{font-family:\00003127}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/omega-4-starter\/sites\/all\/themes\/basis\/sass\/_components\.scss}line{font-family:\00003127}}
 ul.pager li a {
   border: none;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/dev\.basis\/sites\/all\/themes\/basis\/sass\/_components\.scss}line{font-family:\00003132}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/omega-4-starter\/sites\/all\/themes\/basis\/sass\/_components\.scss}line{font-family:\00003132}}
 .pager li.pager-next,
 .pager li.pager-previous {
   text-transform: capitalize;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/dev\.basis\/sites\/all\/themes\/basis\/sass\/_components\.scss}line{font-family:\00003136}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/omega-4-starter\/sites\/all\/themes\/basis\/sass\/_components\.scss}line{font-family:\00003136}}
 .pager li.pager-current {
   font-weight: normal;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/dev\.basis\/sites\/all\/themes\/basis\/sass\/_components\.scss}line{font-family:\00003140}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/omega-4-starter\/sites\/all\/themes\/basis\/sass\/_components\.scss}line{font-family:\00003140}}
 .pager li, .pager li.pager-next, .pager li.pager-previous, .pager li.pager-last, .pager li.pager-first {
   border: none;
   margin-left: 1em;
@@ -543,40 +544,40 @@ ul.pager li a {
   text-align: right;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/dev\.basis\/sites\/all\/themes\/basis\/sass\/_components\.scss}line{font-family:\00003147}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/omega-4-starter\/sites\/all\/themes\/basis\/sass\/_components\.scss}line{font-family:\00003147}}
 .pager li.pager-first a, .pager li.pager-previous a, .pager li.pager-next a, .pager li.pager-last a {
   display: inline-block;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/dev\.basis\/sites\/all\/themes\/basis\/sass\/_components\.scss}line{font-family:\00003152}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/omega-4-starter\/sites\/all\/themes\/basis\/sass\/_components\.scss}line{font-family:\00003152}}
 .pager li.pager-next,
 .pager li.pager-current {
   float: right;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/dev\.basis\/sites\/all\/themes\/basis\/sass\/_components\.scss}line{font-family:\00003156}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/omega-4-starter\/sites\/all\/themes\/basis\/sass\/_components\.scss}line{font-family:\00003156}}
 .pager li.pager-previous {
   float: left;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/dev\.basis\/sites\/all\/themes\/basis\/sass\/_components\.scss}line{font-family:\00003160}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/omega-4-starter\/sites\/all\/themes\/basis\/sass\/_components\.scss}line{font-family:\00003160}}
 .item-list .pager li {
   padding: .25em 1em;
 }
 
 /* END PAGER STYLES */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/dev\.basis\/sites\/all\/themes\/basis\/sass\/_menu\.scss}line{font-family:\000031}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/omega-4-starter\/sites\/all\/themes\/basis\/sass\/_menu\.scss}line{font-family:\000031}}
 .l-header ul.menu {
   margin-bottom: 0;
   padding-left: 0;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/dev\.basis\/sites\/all\/themes\/basis\/sass\/_menu\.scss}line{font-family:\000036}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/omega-4-starter\/sites\/all\/themes\/basis\/sass\/_menu\.scss}line{font-family:\000036}}
 .l-header ul.menu li {
   display: inline-block;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/dev\.basis\/sites\/all\/themes\/basis\/sass\/_menu\.scss}line{font-family:\0000311}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/omega-4-starter\/sites\/all\/themes\/basis\/sass\/_menu\.scss}line{font-family:\0000311}}
 .sf-menu li a:after,
 .l-header ul.menu li a:after {
   color: #dddddd;
@@ -584,25 +585,25 @@ ul.pager li a {
   padding: 36px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/dev\.basis\/sites\/all\/themes\/basis\/sass\/_menu\.scss}line{font-family:\0000318}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/omega-4-starter\/sites\/all\/themes\/basis\/sass\/_menu\.scss}line{font-family:\0000318}}
 .sf-menu li:last-child a:after,
 .l-header ul.menu li:last-child a:after {
   content: "";
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/dev\.basis\/sites\/all\/themes\/basis\/sass\/_menu\.scss}line{font-family:\0000322}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/omega-4-starter\/sites\/all\/themes\/basis\/sass\/_menu\.scss}line{font-family:\0000322}}
 .l-main ul.menu, ol.menu {
   padding-left: 18px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/dev\.basis\/sites\/all\/themes\/basis\/sass\/_menu\.scss}line{font-family:\0000326}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/omega-4-starter\/sites\/all\/themes\/basis\/sass\/_menu\.scss}line{font-family:\0000326}}
 .l-main ul.menu li {
   border-bottom: 1px solid #eeeeee;
   margin-bottom: 9px;
   padding-bottom: 9px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/dev\.basis\/sites\/all\/themes\/basis\/sass\/_menu\.scss}line{font-family:\0000332}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/omega-4-starter\/sites\/all\/themes\/basis\/sass\/_menu\.scss}line{font-family:\0000332}}
 .l-main ul.menu li.last {
   border-bottom: none;
 }
