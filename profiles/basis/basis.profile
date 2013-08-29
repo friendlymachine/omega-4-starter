@@ -13,7 +13,7 @@ function _basis_profile_install_configure_form_submit($form, &$form_state) {
 	//Instead of typical installation, loading preconfigured db included with installation profile	
 	global $user;
   $sql = dirname(__FILE__).'/db.sql';
-  $count = basis_update_db($sql);
+  $db_update = basis_update_db($sql);
 	
 	// Everything below this line of function from original function in core ...
 	variable_set('site_name', $form_state['values']['site_name']);
