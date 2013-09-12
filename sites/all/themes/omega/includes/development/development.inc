@@ -29,24 +29,30 @@ function omega_extension_development_preprocess_html(&$variables) {
   $path = drupal_get_path('theme', 'omega');
 
   if (omega_theme_get_setting('omega_livereload', TRUE)) {
-    $options = array();
-    if ($host = omega_theme_get_setting('omega_livereload_host')) {
+    $port = omega_theme_get_setting('omega_livereload_port', '35729');
+    $host = omega_theme_get_setting('omega_livereload_host', 'localhost');
+    $script = omega_theme_get_setting('omega_livereload_script', "http://$host:$port/livereload.js");
+    $parsed = parse_url($script);
+
+    $query = array();
+    if (!isset($parsed['port']) || $parsed['port'] != $port) {
+      // If no port is specified the livereload.js script will use the default
+      // port (35729).
+      $query['port'] = $port;
+    }
+
+    if (!isset($parsed['host']) || $parsed['host'] != $host) {
       // If no host is specificed livereload.js will use the host that it is
       // served from (e.g. if livereload.js is served from example.com it will
       // try to connect to a livereload server on example.com.
-      $options['host'] = $host;
-    }
-
-    if ($port = omega_theme_get_setting('omega_livereload_port')) {
-      // If no port is specified the livereload.js script will use the default
-      // port (35729).
-      $options['port'] = $port;
+      $query['host'] = $host;
     }
 
     // We need to add livereload.js as external script with an absolute path
     // because otherwise Drupal core messes with the query string.
-    $file = url(file_create_url($path . '/js/livereload.js'), array('query' => $options, 'external' => TRUE));
-    drupal_add_js($file, array(
+    $script = empty($query) ? $script : $script . '?' . http_build_query($query);
+    drupal_add_js($script, array(
+      'preprocess' => FALSE,
       'type' => 'external',
       'browsers' => array(
         'IE' => FALSE,
@@ -61,7 +67,7 @@ function omega_extension_development_preprocess_html(&$variables) {
     if (omega_theme_get_setting('omega_browser_width_indicator', FALSE)) {
       if (!module_exists('overlay') || (!$mode = overlay_get_mode()) || $mode == 'parent') {
         $variables['attributes_array']['class'][] = 'omega-browser-width-indicator';
-        drupal_add_js($path . '/js/omega.indicator.js', array('group' => JS_THEME, 'weight' => -10, 'every_page' => TRUE));
+        drupal_add_js($path . '/js/omega.indicator.min.js', array('group' => JS_THEME, 'weight' => -10, 'every_page' => TRUE));
       }
     }
   }
@@ -73,7 +79,11 @@ function omega_extension_development_preprocess_html(&$variables) {
 function omega_extension_development_preprocess_region(&$variables) {
   if ($variables['debug'] = !empty($variables['elements']['#debug'])) {
     $class = drupal_html_class('region--debug--' . $variables['region']);
-    drupal_add_css(".$class:before { content: \"{$variables['elements']['#name']}\"; }", array('type' => 'inline'));
+    drupal_add_css(".$class:before { content: \"{$variables['elements']['#name']}\"; }", array(
+      'type' => 'inline',
+      'group' => CSS_THEME,
+      'weight' => 1000,
+    ));
 
     $variables['attributes_array']['class'][] = 'region--debug';
     $variables['attributes_array']['class'][] = $class;

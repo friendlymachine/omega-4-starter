@@ -162,3 +162,34 @@ ul.pager li a {
 }
 
 /* END PAGER STYLES */
+
+/* BEGIN FORM STYLES */
+
+.form-textarea-wrapper textarea {
+	display: block;
+	box-sizing: border-box;
+	width: 100%;
+	margin: 0;
+	height: 200px;
+}
+
+button, input[type="reset"], input[type="submit"], input[type="button"],
+.comment-links a, .button {
+	background: $accent-color;
+	border: none;
+	border-radius: $em-base/2;
+	color: $base-color;
+	font-size: $em-base;
+	margin: 4px 2px;
+	padding: 8px 16px; padding: .5rem 1rem;
+	text-shadow: none;
+}
+
+button:hover, input[type="reset"]:hover, input[type="submit"]:hover, input[type="button"]:hover,
+.comment-links a:hover, .button:hover {
+  background: lighten($accent-color, 10%);
+  color: $base-color !important;
+  cursor: pointer;
+}
+
+/* END FORM STYLES */

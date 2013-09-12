@@ -8,7 +8,7 @@
 require_once dirname(__FILE__) . '/includes/omega.inc';
 require_once dirname(__FILE__) . '/includes/scripts.inc';
 
-if ($GLOBALS['theme'] === $GLOBALS['theme_key'] && ($GLOBALS['theme'] == 'omega' || (!empty($GLOBALS['base_theme_info']) && $GLOBALS['base_theme_info'][0]->name == 'omega'))) {
+if (drupal_get_bootstrap_phase() >= DRUPAL_BOOTSTRAP_DATABASE && $GLOBALS['theme'] === $GLOBALS['theme_key'] && ($GLOBALS['theme'] == 'omega' || (!empty($GLOBALS['base_theme_info']) && $GLOBALS['base_theme_info'][0]->name == 'omega'))) {
   // Managing debugging (flood) messages and a few development tasks. This also
   // lives outside of any function declaration to make sure that the code is
   // executed before any theme hooks.
@@ -315,6 +315,20 @@ function omega_css_alter(&$css) {
  * Implements hook_js_alter().
  */
 function omega_js_alter(&$js) {
+  // If the AJAX.js isn't included... we don't need the ajaxPageState settings!
+  if ( ! isset($js['misc/ajax.js']) && isset($js['settings']['data'])) {
+    foreach ($js['settings']['data'] as $delta => $setting) {
+      if (array_key_exists('ajaxPageState', $setting)) {
+        if (count($setting) == 1) {
+          unset($js['settings']['data'][$delta]);
+        }
+        else {
+          unset($js['settings']['data'][$delta]['ajaxPageState']);
+        }
+      }
+    }
+  }
+
   if (!omega_extension_enabled('assets')) {
     return;
   }
@@ -378,19 +392,16 @@ function omega_theme() {
 function omega_theme_registry_alter(&$registry) {
   // Fix for integration with the theme developer module.
   if (module_exists('devel_themer')) {
-    $mapping = array(
-      'preprocess' => 'devel_function_preprocess_intercept',
-      'process' => 'devel_function_process_intercept',
-      'theme' => 'devel_function_intercept',
-    );
+    foreach ($registry as $hook => $data) {
+      $registry[$hook] = $data['original'];
+    }
   }
-  else {
-    $mapping = array(
-      'preprocess' => 'preprocess functions',
-      'process' => 'process functions',
-      'theme' => 'function',
-    );
-  }
+
+  $mapping = array(
+    'preprocess' => 'preprocess functions',
+    'process' => 'process functions',
+    'theme' => 'function',
+  );
 
   // We prefer the attributes array instead of the plain classes array used by
   // many core and contrib modules. In Drupal 8, we are going to convert all
@@ -416,7 +427,6 @@ function omega_theme_registry_alter(&$registry) {
   // Keep track of theme function include files that are not directly loaded
   // into the theme registry. This is the case for previously unknown theme
   // hook suggestion implementations.
-  $includes = array();
   foreach ($trail as $theme => $name) {
     // Remove the current element from the trail so we only iterate over
     // higher level themes during subsequent checks.
@@ -443,24 +453,13 @@ function omega_theme_registry_alter(&$registry) {
           continue;
         }
 
-        // Name of the function (theme hook or theme function).
-        $callback = $type == 'theme' ? $theme . '_' . $hook : $theme . '_' . $type . '_' . $hook;
-
-        // Make sure we don't run into any fatal errors by including any
-        // include file for a (pre)process or theme function if the same hook
-        // has already been implemented in template.php or anywhere else.
-        if (($type == 'theme' && isset($registry[$hook][$map]) && $registry[$hook][$map] == $callback) || ($type != 'theme' && in_array($callback, $registry[$hook][$map]))) {
-          // Notify the administrator about this clash through watchdog.
-          watchdog('omega', 'There are two declarations of %function in the %theme theme for the %hook %type hook. Therefore, the include file %file was skipped.', array(
-            '%function' => $callback,
-            '%theme' => $name,
-            '%hook' => $hook,
-            '%type' => $type,
-            '%file' => $item->uri,
-          ));
-
+        // Skip theme function overrides if they are already declared 'final'.
+        if ($type === 'theme' && !empty($registry[$hook]['final'])) {
           continue;
         }
+
+        // Name of the function (theme hook or theme function).
+        $callback = $type == 'theme' ? $theme . '_' . $hook : $theme . '_' . $type . '_' . $hook;
 
         // Furthermore, we don't want to re-override sub-theme template file or
         // theme function overrides with theme functions from include files
@@ -569,14 +568,18 @@ function omega_theme_registry_alter(&$registry) {
       }
     }
   }
+
+  // Fix for integration with the theme developer module.
+  if (module_exists('devel_themer')) {
+    devel_themer_theme_registry_alter($registry);
+  }
 }
 
 /**
  * Initializes the attributes array from the classes array.
  */
 function omega_initialize_attributes(&$variables) {
-  $variables['attributes_array']['class'] = $variables['classes_array'];
-  $variables['classes_array'] = &$variables['attributes_array']['class'];
+  $variables['attributes_array']['class'] = &$variables['classes_array'];
 }
 
 /**
@@ -584,17 +587,17 @@ function omega_initialize_attributes(&$variables) {
  */
 function omega_cleanup_attributes(&$variables, $hook) {
   // Break the reference between the classes array and the attributes array.
-  unset($variables['classes_array']);
+  $classes = !empty($variables['classes_array']) ? $variables['classes_array'] : array();
+  unset($variables['attributes_array']['class'], $variables['classes_array']);
 
   // Clone the attributes array classes into the classes array for backwards
   // compatibility reasons. Note that we do not recommend using the classes in
   // classes array anyways.
-  $variables['classes_array'] = isset($variables['attributes_array']['class']) ? $variables['attributes_array']['class'] : array();
+  $variables['classes_array'] = $classes;
 
-  if (empty($variables['attributes_array']['class'])) {
-    // Unset the 'class' attribute if it's empty so that we don't produce empty
-    // class properties.
-    unset($variables['attributes_array']['class']);
+  if (!empty($classes)) {
+    // Only write the 'class' attribute if it's not empty.
+    $variables['attributes_array']['class'] = $classes;
   }
 }
 
@@ -620,12 +623,18 @@ function omega_template_process_html_override(&$variables) {
  */
 function omega_block_list_alter(&$blocks) {
   if (omega_extension_enabled('layouts') && $layout = omega_layout()) {
-    // In case we are currently serving a Omega layout we have to make sure that
-    // we don't process blocks that will never be shown because the active layout
-    // does not even have a region for them.
-    foreach ($blocks as $id => $block) {
-      if (!array_key_exists($block->region, $layout['info']['regions'])) {
-        unset($blocks[$id]);
+    $callers = debug_backtrace();
+
+    // Check if drupal_alter() was invoked from _block_load_blocks(). This is
+    // required as we do not want to interfere with contrib modules like ctools.
+    if ($callers['2']['function'] === '_block_load_blocks') {
+      // In case we are currently serving a Omega layout we have to make sure that
+      // we don't process blocks that will never be shown because the active layout
+      // does not even have a region for them.
+      foreach ($blocks as $id => $block) {
+        if (!array_key_exists($block->region, $layout['info']['regions'])) {
+          unset($blocks[$id]);
+        }
       }
     }
   }
@@ -720,8 +729,6 @@ function omega_html_head_alter(&$head) {
  * Implements hook_omega_theme_libraries_info().
  */
 function omega_omega_theme_libraries_info($theme) {
-  $path = drupal_get_path('theme', 'omega');
-
   $libraries['selectivizr'] = array(
     'name' => t('Selectivizr'),
     'description' => t('Selectivizr is a JavaScript utility that emulates CSS3 pseudo-classes and attribute selectors in Internet Explorer 6-8. Simply include the script in your pages and selectivizr will do the rest.'),
@@ -730,7 +737,7 @@ function omega_omega_theme_libraries_info($theme) {
     'package' => t('Polyfills'),
     'files' => array(
       'js' => array(
-        $path . '/libraries/selectivizr/selectivizr.min.js' => array(
+        omega_theme_trail_file('libraries/selectivizr/selectivizr.min.js') => array(
           'browsers' => array('IE' => '(gte IE 6)&(lte IE 8)', '!IE' => FALSE),
           'weight' => 110,
           'every_page' => TRUE,
@@ -743,7 +750,7 @@ function omega_omega_theme_libraries_info($theme) {
         'description' => t('During development it might be useful to include the source files instead of the minified version.'),
         'files' => array(
           'js' => array(
-            $path . '/libraries/selectivizr/selectivizr.js' => array(
+            omega_theme_trail_file('libraries/selectivizr/selectivizr.js') => array(
               'browsers' => array('IE' => '(gte IE 6)&(lte IE 8)', '!IE' => FALSE),
               'weight' => 110,
               'every_page' => TRUE,
@@ -754,49 +761,16 @@ function omega_omega_theme_libraries_info($theme) {
     ),
   );
 
-  $libraries['css3mediaqueries'] = array(
-    'name' => t('CSS3 Media Queries'),
-    'description' => t('CSS3 Media Queries is a JavaScript library to make IE 5+, Firefox 1+ and Safari 2 transparently parse, test and apply CSS3 Media Queries. Firefox 3.5+, Opera 7+, Safari 3+ and Chrome already offer native support. Note: This library requires <a href="!url">CSS aggregation</a> to be enabled for it to work properly.', array('!url' => url('admin/config/development/performance'))),
-    'vendor' => 'Wouter van der Graaf',
-    'vendor url' => 'http://woutervandergraaf.nl/',
-    'package' => t('Polyfills'),
-    'callbacks' => array('omega_extension_library_requirements_css_aggregation'),
-    'files' => array(
-      'js' => array(
-        $path . '/libraries/css3mediaqueries/css3mediaqueries.min.js' => array(
-          'browsers' => array('IE' => '(gte IE 6)&(lte IE 8)', '!IE' => FALSE),
-          'weight' => 100,
-          'every_page' => TRUE,
-        ),
-      ),
-    ),
-    'variants' => array(
-      'source' => array(
-        'name' => t('Source'),
-        'description' => t('During development it might be useful to include the source files instead of the minified version.'),
-        'files' => array(
-          'js' => array(
-            $path . '/libraries/css3mediaqueries/css3mediaqueries.js' => array(
-              'browsers' => array('IE' => '(gte IE 6)&(lte IE 8)', '!IE' => FALSE),
-              'weight' => 100,
-              'every_page' => TRUE,
-            ),
-          ),
-        ),
-      ),
-    ),
-  );
-
   $libraries['respond'] = array(
     'name' => t('Respond'),
-    'description' => t('Respond is a fast & lightweight polyfill for min/max-width CSS3 Media Queries (for IE 6-8, and more). Note: This library requires <a href="!url">CSS aggregation</a> to be enabled for it to work properly.', array('!url' => url('admin/config/development/performance'))),
+    'description' => t('Respond is a fast & lightweight polyfill for min/max-width CSS3 Media Queries (for IE 6-8, and more). Note: This library requires <a href="!url">CSS aggregation</a> to be enabled for it to work properly.', array('!url' => url('admin/config/development/performance', array('alias' => TRUE)))),
     'vendor' => 'Scott Jehl',
     'vendor url' => 'http://scottjehl.com/',
     'package' => t('Polyfills'),
     'callbacks' => array('omega_extension_library_requirements_css_aggregation'),
     'files' => array(
       'js' => array(
-        $path . '/libraries/respond/respond.min.js' => array(
+        omega_theme_trail_file('libraries/respond/respond.min.js') => array(
           'browsers' => array('IE' => '(gte IE 6)&(lte IE 8)', '!IE' => FALSE),
           'weight' => 120,
           'every_page' => TRUE,
@@ -809,7 +783,7 @@ function omega_omega_theme_libraries_info($theme) {
         'description' => t('During development it might be useful to include the source files instead of the minified version.'),
         'files' => array(
           'js' => array(
-            $path . '/libraries/respond/respond.js' => array(
+            omega_theme_trail_file('libraries/respond/respond.js') => array(
               'browsers' => array('IE' => '(gte IE 6)&(lte IE 8)', '!IE' => FALSE),
               'weight' => 120,
               'every_page' => TRUE,
@@ -834,7 +808,7 @@ function omega_omega_theme_libraries_info($theme) {
         'description' => t('While the .htc behavior is still the recommended approach for most users, the JS version has some advantages that may be a better fit for some users.'),
         'files' => array(
           'js' => array(
-            $path . '/libraries/css3pie/PIE.js' => array(
+            omega_theme_trail_file('libraries/pie/PIE.js') => array(
               'browsers' => array('IE' => '(gte IE 6)&(lte IE 8)', '!IE' => FALSE),
               'weight' => 100,
               'every_page' => TRUE,
@@ -854,8 +828,8 @@ function omega_omega_theme_libraries_info($theme) {
 
     // Save the generated CSS in the public file system.
     $file = $destination . '/pie-selectors.css';
-    $htc = base_path() . drupal_get_path('theme', 'omega');
-    $contents = implode(",", $settings['css3pie']['selectors']) . "{behavior:url({$htc}/libraries/css3pie/PIE.htc)}";
+    $htc = base_path() . omega_theme_trail_file('libraries/pie/PIE.htc');
+    $contents = implode(",", $settings['css3pie']['selectors']) . "{behavior:url($htc)}";
     file_unmanaged_save_data($contents, $file, FILE_EXISTS_REPLACE);
 
     $libraries['css3pie']['files']['css'][$file] = array(
@@ -883,7 +857,12 @@ function omega_omega_theme_libraries_info($theme) {
     'package' => t('Polyfills'),
     'files' => array(
       'js' => array(
-        $path . '/libraries/html5shiv/html5shiv.min.js' => array(
+        omega_theme_trail_file('libraries/html5shiv/html5shiv.js') => array(
+          'browsers' => array('IE' => '(gte IE 6)&(lte IE 8)', '!IE' => FALSE),
+          'weight' => 100,
+          'every_page' => TRUE,
+        ),
+        omega_theme_trail_file('libraries/html5shiv/html5shiv-printshiv.js') => array(
           'browsers' => array('IE' => '(gte IE 6)&(lte IE 8)', '!IE' => FALSE),
           'weight' => 100,
           'every_page' => TRUE,
@@ -896,7 +875,12 @@ function omega_omega_theme_libraries_info($theme) {
         'description' => t('During development it might be useful to include the source files instead of the minified version.'),
         'files' => array(
           'js' => array(
-            $path . '/libraries/html5shiv/html5shiv.js' => array(
+            omega_theme_trail_file('libraries/html5shiv/html5shiv.min.js') => array(
+              'browsers' => array('IE' => '(gte IE 6)&(lte IE 8)', '!IE' => FALSE),
+              'weight' => 100,
+              'every_page' => TRUE,
+            ),
+            omega_theme_trail_file('libraries/html5shiv/html5shiv-printshiv.min.js') => array(
               'browsers' => array('IE' => '(gte IE 6)&(lte IE 8)', '!IE' => FALSE),
               'weight' => 100,
               'every_page' => TRUE,
@@ -913,13 +897,13 @@ function omega_omega_theme_libraries_info($theme) {
     'package' => t('Goodies'),
     'files' => array(
       'js' => array(
-        $path . '/js/omega.messages.js' => array(
+        omega_theme_trail_file('js/omega.messages.min.js') => array(
           'weight' => -100,
           'every_page' => TRUE,
         ),
       ),
       'css' => array(
-        $path . '/css/omega.messages.css' => array(
+        omega_theme_trail_file('css/omega.messages.css') => array(
           'weight' => -100,
           'every_page' => TRUE,
         ),

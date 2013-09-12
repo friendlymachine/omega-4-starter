@@ -8,4 +8,6 @@ sites/*/settings*.php
 # Ignore paths that contain private user-generated content.
 sites/default/files/private
 sites/default/files/xmlsitemap*
-sites/all/themes/basis/.sass-cache/27e6c1a6f7312a127751a3c758a243d49d6461dc/_base.scssc
+
+# Ignore sass-cache files.
+*.sass-cache*

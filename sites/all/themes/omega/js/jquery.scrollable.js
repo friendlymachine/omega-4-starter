@@ -1,20 +1,22 @@
 (function ($) {
 
-/**
- * Custom expression for filtering for scrollable elements.
- */
-$.expr[':'].scrollable = function (elem, index, match) {
-  var scrollable = true;
-  // Backup the original scroll position.
-  var original = $(elem).scrollTop();
+  'use strict';
 
-  if (original === 0) {
-    $(elem).scrollTop(1);
-    scrollable = $(elem).scrollTop() === 1;
-    $(elem).scrollTop(0);
-  }
+  /**
+   * Custom expression for filtering for scrollable elements.
+   */
+  $.expr[':'].scrollable = function (elem) {
+    var scrollable = true;
+    // Backup the original scroll position.
+    var original = $(elem).scrollTop();
 
-  return scrollable;
-}
+    if (original === 0) {
+      $(elem).scrollTop(1);
+      scrollable = $(elem).scrollTop() === 1;
+      $(elem).scrollTop(0);
+    }
+
+    return scrollable;
+  };
 
 })(jQuery);

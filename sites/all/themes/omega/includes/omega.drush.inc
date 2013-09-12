@@ -26,6 +26,7 @@ function omega_drush_command() {
       'enable' => dt('Automatically enable the subtheme after creation.'),
       'set-default' => dt('Automatically enable the subtheme after creation and make it the default theme.'),
       'no-readme' => dt('Skips readme files when generating the subtheme.'),
+      'no-libraries' => dt("Prevent execution of the theme's libraries.make file.")
     ),
     'examples' => array(
       'drush omega-subtheme "My Theme"' => dt('Creates an Omega subtheme called "My Theme".'),
@@ -73,6 +74,9 @@ function omega_drush_command() {
     'description' => dt('Reverts the theme settings of a given theme by deleting them from the database.'),
     'arguments' => array(
       'theme' => dt('The machine-readable name of the theme to revert the theme settings for.'),
+    ),
+    'options' => array(
+      'all' => dt('Reverts the theme settings of all Omega sub-themes.'),
     ),
     'examples' => array(
       'drush omega-revert foo' => dt('Reverts the theme settings of the "foo" theme.'),
@@ -146,7 +150,7 @@ function drush_omega_subtheme_validate($name = NULL) {
     if (!drush_omega_resolve_destination($destination)) {
       list($type, $destination) = explode(':', $destination);
 
-      return drush_set_error('OMEGA_DESTINATION_DOEST_NOT_EXIST', dt('The given destination @destination of type @type does not exist. Did you misspell it?', array(
+      return drush_set_error('OMEGA_DESTINATION_DOES_NOT_EXIST', dt('The given destination @destination of type @type does not exist. Did you misspell it?', array(
         '@destination' => $destination,
         '@type' => $type,
       )));
@@ -265,7 +269,7 @@ function drush_omega_subtheme($name) {
   drupal_theme_rebuild();
   system_rebuild_theme_data();
 
-  if ($default = drush_get_option('set-default') || !drush_get_option('enable')) {
+  if (($default = drush_get_option('set-default')) || !drush_get_option('enable')) {
     // Enable the subtheme.
     drush_op('theme_enable', array($machine_name));
 
@@ -273,6 +277,16 @@ function drush_omega_subtheme($name) {
       // Make the newly created subtheme the default theme.
       drush_op('variable_set', 'theme_default', $machine_name);
     }
+  }
+
+  // Execute the theme's libraries.make file unless disabled.
+  if (!drush_get_option('no-libraries') && is_file("$destination/libraries.make")) {
+    drush_op('chdir', $destination);
+    drush_invoke_process('@self', 'make', array('libraries.make'), array(
+      'no-core' => TRUE,
+      'contrib-destination' => '.',
+      'yes' => TRUE,
+    ));
   }
 
   drush_log(dt('You have successfully created the theme @theme (@name) in @path.', array(
@@ -358,14 +372,10 @@ function drush_omega_export($theme = NULL) {
   $themes = list_themes();
 
   // Insert the theme settings from the database.
-  if ($settings = variable_get('theme_' . $theme . '_settings')) {
-    foreach (_system_default_theme_features() as $feature) {
-      // Remove the 'toggle_foobar' elements from the theme settings array.
-      unset($settings['toggle_' . $feature]);
+  if (!$settings = variable_get('theme_' . $theme . '_settings')) {
+    if (!drush_confirm(dt('There are no theme settings for @theme stored in the database. Do you want to purge the theme settings from the .info file too?', array('@theme' => $themes[$theme]->info['name'])))) {
+      return;
     }
-  }
-  elseif (!drush_confirm(dt('There are no theme settings for @theme stored in the database. Do you want to purge the theme settings from the .info file too?', array('@theme' => $themes[$theme]->info['name'])))) {
-    return;
   }
 
   // Parse the current content of the .info file so we can append the settings
@@ -415,22 +425,41 @@ function drush_omega_revert_validate($theme = NULL) {
  *   (optional) The machine-readable name of a theme.
  */
 function drush_omega_revert($theme = NULL) {
-  if (!isset($theme) && !$theme = drush_omega_theme_choice(dt('Which theme do you want to revert the theme settings for?'))) {
+  if (drush_get_option('all')) {
+    // Get a list of all Omega sub-themes.
+    $themes = array();
+    foreach (list_themes() as $key => $info) {
+      $trail = omega_theme_trail($key);
+      if (array_key_exists('omega', $trail)) {
+        $themes[$key] = $info->info['name'];
+      }
+    }
+
+    // Get confirmation from user.
+    drush_print(dt('The settings for the following themes will be reverted: @themes', array('@themes' => implode(', ', $themes))));
+    if (!drush_confirm(dt('Do you really want to continue?'))) {
+      return;
+    }
+  }
+  elseif (!isset($theme) && !$theme = drush_omega_theme_choice(dt('Which theme do you want to revert the theme settings for?'))) {
     return;
   }
 
-  $themes = list_themes();
-  // Delete the theme settings variable for the given theme.
-  drush_op('variable_del', 'theme_' . $theme . '_settings');
+  $info = list_themes();
+  $themes = isset($themes) ? $themes : array($theme => $info[$theme]->info['name']);
+  foreach ($themes as $theme => $name) {
+    // Delete the theme settings variable for the given theme.
+    drush_op('variable_del', 'theme_' . $theme . '_settings');
 
-  // Clear the theme cache.
-  cache_clear_all('omega:' . $theme . ':', 'cache', TRUE);
+    // Clear the theme cache.
+    cache_clear_all('omega:' . $theme . ':', 'cache', TRUE);
+  }
 
   // Rebuild the theme data for good measure.
   drupal_theme_rebuild();
   system_rebuild_theme_data();
 
-  drush_log(dt('You have successfully reverted the theme settings for the @theme theme.', array('@theme' => $themes[$theme]->info['name'])), 'success');
+  drush_log(dt('You have successfully reverted the theme settings for these themes: @themes.', array('@themes' => implode(', ', $themes))), 'success');
 }
 
 /**
@@ -641,7 +670,7 @@ function drush_omega_theme_choice($message) {
     $trail = omega_theme_trail($key);
     if (array_key_exists('omega', $trail)) {
       $parent = count($trail) > 1 ? array_slice($trail, -2, 1) : FALSE;
-      $options[$key] = $info->info['name'] . ($parent ? ' (' . dt('Subtheme of @parent', array('@parent' => reset($parent))) . ')' : '');
+      $options[$key] = $info->info['name'] . ($parent ? ' (' . dt('Subtheme of @parent', array('@parent' => reset($parent))) . ')' : '') . ' - ' . strip_tags($info->info['description']);
     }
   }
   return drush_choice($options, $message);
@@ -785,27 +814,6 @@ function drush_omega_rewrite_recursive($path, $search, $replace) {
     )));
   }
 
-  // Try to rename (move) the file if the name was changed.
-  $original = basename($path);
-  if (($renamed = preg_replace($search, $replace, $original)) === NULL) {
-    return drush_set_error('REWRITE_FAILURE', dt('There was an error while trying to rewrite !path (!search to !replace)', array(
-      '!path' => $path,
-      '!search' => $search,
-      '!replace' => $replace,
-    )));
-  }
-
-  // Move (rename) if the file or directory name was changed.
-  if ($original !== $renamed) {
-    $new = dirname($path) . "/$renamed";
-    if (!drush_move_dir($path, $new, TRUE)) {
-      return FALSE;
-    };
-
-    // Use the changed path from now on.
-    $path = $new;
-  }
-
   // If the file actually is a directory, proceed with the recursion.
   $directory = new DirectoryIterator($path);
   foreach ($directory as $item) {
@@ -833,6 +841,24 @@ function drush_omega_rewrite_recursive($path, $search, $replace) {
       if ($contents !== $changed) {
         file_put_contents($pathname, $changed);
       }
+    }
+
+    // Try to rename (move) the file if the name was changed.
+    $original = basename($pathname);
+    if (($renamed = preg_replace($search, $replace, $original)) === NULL) {
+      return drush_set_error('REWRITE_FAILURE', dt('There was an error while trying to rewrite !path (!search to !replace)', array(
+        '!path' => $path,
+        '!search' => $search,
+        '!replace' => $replace,
+      )));
+    }
+
+    // Move (rename) if the file or directory name was changed.
+    if ($original !== $renamed) {
+      $new = dirname($pathname) . "/$renamed";
+      if (!drush_move_dir($pathname, $new, TRUE)) {
+        return FALSE;
+      };
     }
   }
 
